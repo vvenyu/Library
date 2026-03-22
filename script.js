@@ -20,7 +20,7 @@ addBookToLibrary('book2', 'John Cena', 400, 'no');
 
 // DOM selectors
 const content = document.querySelector('.content');
-
+const addBookBtn = document.querySelector('#add-book-btn')
 
 // Add books to the content
 library.forEach((book) => {
@@ -42,10 +42,10 @@ library.forEach((book) => {
         </svg>
     `;
 
-    title.textContent = book.title;
-    author.textContent = book.author;
-    pages.textContent = book.pages;
-    readed.textContent = book.readed;
+    title.textContent = `Title: ${book.title}`;
+    author.textContent = `Author: ${book.author}`;
+    pages.textContent = `Pages: ${book.pages}`;
+    readed.textContent = `Readed?: ${book.readed}`;
 
     cardText.appendChild(title);
     cardText.appendChild(author);

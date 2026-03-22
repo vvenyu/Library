@@ -10,8 +10,29 @@
 <body>
     <div class="header">
         <h1 class="gasoek-one-regular">Library</h1>
+        <button commandfor="dialog-form" command="show-modal" id="add-book-btn">Add Book</button>
     </div>
-    <div class="content">        
-    </div>
+    <div class="content"></div>
+    <dialog id="dialog-form" closedby="any">
+        <form action="#">
+
+            <label for="book-title">Title: 
+                <input placeholder="The Lord Of The Rings" type="text" name="title" id="book-title" required>
+            </label>
+
+            <label for="book-author">Author: 
+                <input placeholder="J. R. R. Tolkien" type="text" name="author" id="book-author" required>
+            </label>
+
+            <label for="book-pages">No. of pages: 
+                <input type="number" name="pages" id="book-pages" min="1" max="3000">
+            </label>
+
+            <label for="book-readed">Readed: 
+                <input type="checkbox" name="readed" id="book-readed">
+            </label>
+
+        </form>
+    </dialog>
 </body>
 </html>
