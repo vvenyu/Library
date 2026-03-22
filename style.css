@@ -38,6 +38,7 @@ body {
     border-radius: 0.3rem;
     color: var(--accent-color);
     font-weight: bold;
+    cursor: pointer;
     font-size: 1.2rem;
 }
 
@@ -98,15 +99,52 @@ dialog > form > :nth-child(-n+3) {
     gap: 0.2rem;
 }
 
-dialog > form > :last-child {
+dialog > form > :nth-child(-n+3) > input:focus {
+    outline: 2px dotted var(--accent-color);
+}
+
+dialog > form > :nth-child(4) {
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
 input {
-    border: none;
-    background-color: rgb(200, 200, 200);
+    border: 2px solid #999;
     padding: 0.5rem 1rem;
     border-radius: 3px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    padding: 0;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+#dialog-btn {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#dialog-btn:hover {
+    outline: 2px solid var(--accent-color);
+    background-color: transparent;
+    color: var(--accent-color);
 }
