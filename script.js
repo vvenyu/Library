@@ -35,7 +35,6 @@ form.addEventListener('submit', (e) => {
     addBookToLibrary(formDataObject.title, formDataObject.author, formDataObject.pages, formDataObject.readed);
     content.replaceChildren(); 
     addBookToContent();
-    
     dialog.close();
     form.reset();
 });
@@ -45,10 +44,10 @@ function addBookToContent() {
     library.forEach((book) => {
         const card = document.createElement('div');
         card.classList.add('card');
-    
+
         const cardText = document.createElement('div');
         cardText.classList.add('card-text')
-    
+
         const title = document.createElement('p');
         const author = document.createElement('p');
         const pages = document.createElement('p');
@@ -78,8 +77,13 @@ function addBookToContent() {
         });
 
         svgContainer.addEventListener('click', () => {
-            console.log('I was clicked')
-        }, {capture: true});
+            card.remove(); 
+
+            const bookIndex = library.findIndex(item => item.id === book.id);
+            if (bookIndex !== -1) {
+                library.splice(bookIndex, 1);
+            }
+        });
 
         title.textContent = `${book.title}`;
         author.textContent = `${book.author}`;
@@ -95,4 +99,4 @@ function addBookToContent() {
         content.appendChild(card);
     
     });
-}
+};

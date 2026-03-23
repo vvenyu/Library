@@ -92,6 +92,10 @@ svg {
     fill: rgb(212, 0, 0);
     cursor: pointer;
 }
+
+.svg-container svg {
+    pointer-events: none;
+}
 /* Style for the dialog */
 
 dialog {
