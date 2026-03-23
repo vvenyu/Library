@@ -10,14 +10,14 @@
 <body>
     <div class="header">
         <h1 class="gasoek-one-regular">Library</h1>
-        <button commandfor="dialog-form" command="show-modal" id="add-book-btn">Add Book</button>
+        <button id="add-book-btn">Add Book</button>
     </div>
     <div class="content"></div>
     <dialog id="dialog-form" closedby="any">
-        <form action="#">
+        <form action="#" id="book-form">
 
             <label for="book-title">Title: 
-                <input placeholder="The Lord Of The Rings" type="text" name="title" id="book-title" required>
+                <input placeholder="The Lord Of The Rings" type="text" name="title" id="book-title" required autofocus>
             </label>
 
             <label for="book-author">Author: 

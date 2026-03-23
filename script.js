@@ -20,7 +20,24 @@ addBookToLibrary('book2', 'John Cena', 400, 'no');
 
 // DOM selectors
 const content = document.querySelector('.content');
-const addBookBtn = document.querySelector('#add-book-btn')
+const addBookBtn = document.querySelector('#add-book-btn');
+const dialog = document.querySelector('#dialog-form');
+const form = document.querySelector('#book-form');
+
+
+// Open and get dialog info
+addBookBtn.addEventListener('click', () => dialog.showModal());
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const formDataObject = Object.fromEntries(formData);
+    addBookToLibrary(formDataObject.title, formDataObject.author, formDataObject.pages, formDataObject.readed);
+    console.log(formDataObject);
+
+    dialog.close()
+    form.reset();
+});
 
 // Add books to the content
 library.forEach((book) => {
