@@ -10,6 +10,9 @@ function Book(title, author, pages, readed) {
     this.id = crypto.randomUUID();
 };
 
+Book.prototype.changeStatus = function() {
+}
+
 function addBookToLibrary(title, author, pages, readed) {
     const book = new Book(title, author, pages, readed);
     library.push(book);
