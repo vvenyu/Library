@@ -61,7 +61,7 @@ body {
     background-color: white;
     height: auto;
     border-radius: 10px;
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -74,6 +74,24 @@ svg {
     border-radius: 10px;
 }
 
+.card > :first-child > :first-child {
+    font-size: 1.5rem;
+}
+
+.card > :first-child > :nth-child(2) {
+    font-weight: 100;
+    margin-bottom: 1.5rem;
+    color: #606060;
+}
+
+.card > :first-child{
+    height: 100%;
+}
+
+.svg-container:hover {
+    fill: rgb(212, 0, 0);
+    cursor: pointer;
+}
 /* Style for the dialog */
 
 dialog {
