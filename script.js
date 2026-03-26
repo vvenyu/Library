@@ -10,9 +10,6 @@ function Book(title, author, pages, readed) {
     this.id = crypto.randomUUID();
 };
 
-Book.prototype.changeStatus = function() {
-}
-
 function addBookToLibrary(title, author, pages, readed) {
     const book = new Book(title, author, pages, readed);
     library.push(book);
@@ -33,7 +30,7 @@ form.addEventListener('submit', (e) => {
     const formData = new FormData(form);
     const formDataObject = Object.fromEntries(formData);
 
-    (formDataObject.readed === undefined) ? formDataObject.readed = 'no' : formDataObject.readed = 'yes';
+    (formDataObject.readed === undefined) ? formDataObject.readed = 'Not Readed' : formDataObject.readed = 'Readed';
 
     addBookToLibrary(formDataObject.title, formDataObject.author, formDataObject.pages, formDataObject.readed);
     content.replaceChildren(); 
@@ -54,8 +51,9 @@ function addBookToContent() {
         const title = document.createElement('p');
         const author = document.createElement('p');
         const pages = document.createElement('p');
-        const readed = document.createElement('p');
-    
+        const readed = document.createElement('button');
+        readed.classList.add('readed-btn');
+
         const svgContainer = document.createElement('div');
         svgContainer.classList.add('svg-container');
         svgContainer.innerHTML = `
@@ -88,10 +86,28 @@ function addBookToContent() {
             }
         });
 
+        readed.addEventListener('click', () => {
+            if(book.readed === 'Readed') {
+                book.readed = 'Not Readed';
+                readed.textContent = book.readed;
+                readed.classList.remove('readed');
+                readed.classList.add('not-readed');
+            } else {
+                book.readed = 'Readed';
+                readed.textContent = book.readed;
+                readed.classList.remove('not-readed');                
+                readed.classList.add('readed');
+            };
+        });
+
+        if(book.readed === 'Readed') {
+            readed.classList.add('readed');
+        } else readed.classList.add('not-readed');
+
         title.textContent = `${book.title}`;
         author.textContent = `${book.author}`;
         pages.textContent = `Pages: ${book.pages}`;
-        readed.textContent = `Readed: ${book.readed}`;
+        readed.textContent = `${book.readed}`;
     
         cardText.appendChild(title);
         cardText.appendChild(author);
